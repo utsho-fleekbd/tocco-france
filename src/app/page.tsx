@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
+
 export default function Home() {
-  return <h1>Tocco France</h1>;
+  return <div className="min-h-[200vh]"></div>;
 }
