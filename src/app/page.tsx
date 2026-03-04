@@ -4,6 +4,7 @@ import Slider from "./_components/hero/slider";
 import { Welcome } from "./_components/hero";
 import { Services } from "./_components/services";
 import { Demo } from "./_components/demo";
+import { Showcase } from "./_components/showcase";
 
 export const metadata: Metadata = {
   title: "Home - Tocco France",
@@ -16,6 +17,7 @@ export default function Home() {
       <Welcome />
       <Services />
       <Demo />
+      <Showcase />
     </div>
   );
 }
