@@ -65,7 +65,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <SlLocationPin className="text-4xl h-16 w-16" />
+            <SlLocationPin className="h-16 w-16" />
             <div className="space-y-0.5">
               <h3 className="text-lg font-semibold">Corporate Office</h3>
               <p className="text-sm">
@@ -82,7 +82,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <SlLocationPin className="text-4xl h-16 w-16" />
+            <SlLocationPin className="h-16 w-16" />
             <div className="space-y-0.5">
               <h3 className="text-lg font-semibold">Gulshan Showroom</h3>
               <p className="text-sm">
@@ -99,7 +99,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="flex gap-2">
-            <SlLocationPin className="text-4xl h-16 w-16" />
+            <SlLocationPin className="h-16 w-16" />
             <div className="space-y-0.5">
               <h3 className="text-lg font-semibold">Kawran Bazaar Office</h3>
               <p className="text-sm">
