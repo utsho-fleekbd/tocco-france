@@ -8,7 +8,7 @@ import { Logo } from "@/components/ui/logo";
 import { NavList } from "./nav-list";
 import { ActionList } from "./actions/action-list";
 
-export default function Navbar() {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {

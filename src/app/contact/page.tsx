@@ -1,6 +1,11 @@
+import { Metadata } from "next";
 import { LuMessagesSquare, LuPlane } from "react-icons/lu";
 import { MdPhoneAndroid } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
+
+export const metadata: Metadata = {
+  title: "Contact",
+};
 
 export default function ContactPage() {
   return (
