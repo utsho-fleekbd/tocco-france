@@ -1,5 +1,11 @@
+import { Metadata } from "next";
+
 import { ProductGallery } from "./_components/product-gallery";
 import { Sidebar } from "./_components/sidebar";
+
+export const metadata: Metadata = {
+  title: "Switch & Socket",
+};
 
 export default function SwitchSocketPage() {
   return (
