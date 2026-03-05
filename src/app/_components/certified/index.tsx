@@ -38,15 +38,20 @@ const certificates = [
 export function Certified() {
   return (
     <div className="w-full max-w-6xl mx-auto min-h-screen flex flex-col items-center justify-center gap-6 text-center">
-      <motion.h2 className="uppercase text-7xl font-bold bg-linear-to-tr from-primary to-secondary bg-clip-text text-transparent">
+      <motion.h2
+        className="uppercase text-6xl font-bold bg-linear-to-tr from-primary to-secondary bg-clip-text text-transparent"
+        initial={{ scale: 0.9, y: 75 }}
+        whileInView={{ scale: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         we are certified
       </motion.h2>
       <div className="w-48 h-2 bg-white" />
       <motion.div
         className="w-full max-w-6xl mx-auto"
-        initial={{ scale: 0.9, y: -20 }}
+        initial={{ scale: 0.9, y: -75 }}
         whileInView={{ scale: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.4 }}
       >
         <Swiper
           modules={[Navigation, Pagination, Autoplay, A11y]}

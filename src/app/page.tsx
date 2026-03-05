@@ -8,6 +8,7 @@ import { Showcase } from "./_components/showcase";
 import { HouseDemo } from "./_components/house-demo";
 import { OfficeDemo } from "./_components/office-demo";
 import { Certified } from "./_components/certified";
+import { ContactUs } from "./_components/contact-us";
 
 export const metadata: Metadata = {
   title: "Home - Tocco France",
@@ -24,6 +25,7 @@ export default function Home() {
       <OfficeDemo />
       <HouseDemo />
       <Certified />
+      <ContactUs />
     </div>
   );
 }
