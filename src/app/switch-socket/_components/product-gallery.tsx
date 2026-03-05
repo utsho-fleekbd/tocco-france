@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LayoutGrid, List, Grid3X3 } from "lucide-react";
+import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 import { Product, ProductCard } from "./product-card";
 
@@ -17,12 +18,6 @@ import product9 from "../assets/4-gang-1-way-1.jpg";
 import product10 from "../assets/4-gang-2-way.jpg";
 import product11 from "../assets/5-Pin-multi-socket.jpg";
 import product12 from "../assets/Bell-push-02.jpg";
-import {
-  BiLeftArrow,
-  BiLeftArrowAlt,
-  BiRightArrow,
-  BiRightArrowAlt,
-} from "react-icons/bi";
 
 const products: Array<Product> = [
   { name: "2-Gang Light Switch", price: 420, img: product1 },
@@ -40,43 +35,80 @@ const products: Array<Product> = [
 ];
 
 export function ProductGallery() {
+  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [viewMode, setViewMode] = useState<"grid3" | "grid2" | "list">("grid3");
+
   const handleAddToCart = (product: Product) => {
     console.log(`Added ${product.name} to cart`);
   };
 
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const start = (currentPage - 1) * itemsPerPage;
+  const visibleProducts = products.slice(start, start + itemsPerPage);
+
   return (
     <div className="min-h-screen bg-[#111111] text-gray-300 p-8 font-sans">
-      {/* Top Bar */}
+      {/* TOP BAR */}
       <div className="flex justify-between items-center mb-10 text-sm tracking-wider">
         <div className="flex items-center gap-2">
-          <span className="hover:text-white cursor-pointer transition-colors">
-            Home
-          </span>
+          <span className="hover:text-white cursor-pointer">Home</span>
           <span>/</span>
-          <span className="hover:text-white cursor-pointer transition-colors">
+          <span className="hover:text-white cursor-pointer">
             Switch & Socket
           </span>
         </div>
 
         <div className="flex items-center gap-6">
+          {/* SHOW SELECTOR */}
           <div className="flex gap-2">
             <span>Show:</span>
-            {[9, 12, 18, 24].map((num) => (
+
+            {[6, 9, 12, 18].map((num) => (
               <button
                 key={num}
-                className={`hover:text-white ${num === 12 ? "text-white font-bold" : ""}`}
+                onClick={() => {
+                  setItemsPerPage(num);
+                  setCurrentPage(1);
+                }}
+                className={`hover:text-white ${
+                  itemsPerPage === num ? "text-white font-bold" : ""
+                }`}
               >
                 {num}
               </button>
             ))}
           </div>
 
+          {/* VIEW MODE */}
           <div className="flex items-center gap-2 border-l border-gray-700 pl-6">
-            <LayoutGrid size={20} className="cursor-pointer hover:text-white" />
-            <Grid3X3 size={20} className="cursor-pointer text-white" />
-            <List size={20} className="cursor-pointer hover:text-white" />
+            <LayoutGrid
+              size={20}
+              onClick={() => setViewMode("grid2")}
+              className={`cursor-pointer hover:text-white ${
+                viewMode === "grid2" ? "text-white" : ""
+              }`}
+            />
+
+            <Grid3X3
+              size={20}
+              onClick={() => setViewMode("grid3")}
+              className={`cursor-pointer hover:text-white ${
+                viewMode === "grid3" ? "text-white" : ""
+              }`}
+            />
+
+            <List
+              size={20}
+              onClick={() => setViewMode("list")}
+              className={`cursor-pointer hover:text-white ${
+                viewMode === "list" ? "text-white" : ""
+              }`}
+            />
           </div>
 
+          {/* SORT */}
           <select className="bg-transparent border-none focus:ring-0 text-white cursor-pointer text-sm">
             <option className="bg-background-3">Default sorting</option>
             <option className="bg-background-3">Price: Low to High</option>
@@ -85,9 +117,19 @@ export function ProductGallery() {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-3 gap-x-6">
-        {products.map((product, i) => (
+      {/* PRODUCT GRID */}
+      <div
+        className={`grid gap-x-6 gap-y-10
+          ${
+            viewMode === "grid3"
+              ? "grid-cols-3"
+              : viewMode === "grid2"
+                ? "grid-cols-2"
+                : "grid-cols-1"
+          }
+        `}
+      >
+        {visibleProducts.map((product, i) => (
           <ProductCard
             key={i}
             product={product}
@@ -96,18 +138,40 @@ export function ProductGallery() {
         ))}
       </div>
 
-      {/* Pagination */}
+      {/* PAGINATION */}
       <div className="flex justify-center mt-20 gap-2">
-        <button className="w-8 h-8 flex items-center justify-center hover:text-white cursor-pointer">
+        <button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((p) => p - 1)}
+          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40"
+        >
           <BiLeftArrowAlt size={20} />
         </button>
-        <button className="w-8 h-8 flex items-center justify-center bg-[#003d6b] hover:text-white cursor-pointer">
-          1
-        </button>
-        <button className="w-8 h-8 flex items-center justify-center text-white cursor-pointer">
-          2
-        </button>
-        <button className="w-8 h-8 flex items-center justify-center hover:text-white cursor-pointer">
+
+        {Array.from({ length: totalPages }).map((_, i) => {
+          const page = i + 1;
+
+          return (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`w-8 h-8 flex items-center justify-center
+              ${
+                currentPage === page
+                  ? "bg-[#003d6b] text-white"
+                  : "hover:text-white"
+              }`}
+            >
+              {page}
+            </button>
+          );
+        })}
+
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage((p) => p + 1)}
+          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40"
+        >
           <BiRightArrowAlt size={20} />
         </button>
       </div>
