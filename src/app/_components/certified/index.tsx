@@ -37,9 +37,9 @@ const certificates = [
 
 export function Certified() {
   return (
-    <div className="w-full max-w-6xl mx-auto min-h-screen flex flex-col items-center justify-center gap-6 text-center">
+    <div className="py-32 w-full max-w-6xl mx-auto flex flex-col items-center justify-center gap-6 text-center">
       <motion.h2
-        className="uppercase text-6xl font-bold bg-linear-to-tr from-primary to-secondary bg-clip-text text-transparent"
+        className="uppercase text-5xl lg:text-6xl font-bold bg-linear-to-tr from-primary to-secondary bg-clip-text text-transparent"
         initial={{ scale: 0.9, y: 75 }}
         whileInView={{ scale: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -62,7 +62,23 @@ export function Certified() {
             disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}
-          slidesPerView={6}
+          breakpoints={{
+            300: {
+              slidesPerView: 2,
+            },
+            480: {
+              slidesPerView: 3,
+            },
+            640: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 5,
+            },
+            1024: {
+              slidesPerView: 6,
+            },
+          }}
           navigation
         >
           {certificates.map((img, index) => (
