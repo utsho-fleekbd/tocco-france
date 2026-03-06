@@ -2,7 +2,7 @@ import { NavLink, NavLinkProp } from "./nav-link";
 
 export const navLinks: Array<NavLinkProp> = [
   { href: "/", children: "Home" },
-  { href: "#", children: "Company" },
+  { href: "/company", children: "Company" },
   { href: "/switch-socket", children: "Switch & Socket" },
   { href: "#", children: "Showrooms" },
   { href: "/career", children: "Career" },
