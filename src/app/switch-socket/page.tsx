@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function SwitchSocketPage() {
   return (
-    <div className="bg-background-2 overflow-x-hidden mt-28 p-4 lg:p-6">
+    <div className="bg-background-2 overflow-x-hidden mt-24 p-4 lg:p-6">
       <div className="flex lg:hidden items-center justify-center gap-2 pb-4 border-b border-gray-60">
         <span className="hover:text-white cursor-pointer">Home</span>
         <span>/</span>

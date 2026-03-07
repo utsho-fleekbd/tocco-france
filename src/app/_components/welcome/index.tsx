@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 
-import WelcomeSlider from "../welcome/slider";
+import WelcomeSlider from "./slider";
 
 export function Welcome() {
   return (
-    <div className="min-h-screen w-full max-w-7xl mx-auto px-12 grid grid-cols-1 lg:grid-cols-5 gap-2 md:gap-12">
-      <div className="space-y-4 my-auto col-span-3">
+    <div className="h-full lg:min-h-screen w-full max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-12 py-12 lg:py-0">
+      <div className="space-y-4 my-0 lg:my-auto col-span-1 lg:col-span-3">
         <motion.h2
           className="font-script text-3xl md:text-5xl"
           initial={{ scaleX: 0.75, y: -75 }}
@@ -21,7 +21,7 @@ export function Welcome() {
         </h1>
       </div>
 
-      <div className="my-auto col-span-2">
+      <div className="my-auto col-span-1 lg:col-span-2">
         <WelcomeSlider />
       </div>
     </div>

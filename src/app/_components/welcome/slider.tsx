@@ -16,7 +16,7 @@ import switchSocket3 from "./assets/switch-socket-03.jpg";
 
 export default function WelcomeSlider() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-4 lg:space-y-8">
       <motion.div
         initial={{ scale: 0.7, y: -35, x: 35 }}
         whileInView={{ scale: 1, y: 0, x: 0 }}

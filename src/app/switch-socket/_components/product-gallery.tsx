@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TfiLayoutGrid4 } from "react-icons/tfi";
 import { LayoutGrid, List, Grid3X3 } from "lucide-react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
@@ -32,15 +33,29 @@ const products: Array<Product> = [
   { name: "Modular Blanking Plate", price: 250, img: product10 },
   { name: "Air Con Isolator Switch", price: 1350, img: product11 },
   { name: "Dual Ethernet Data Port", price: 790, img: product12 },
+  { name: "2-Gang Light Switch", price: 420, img: product1 },
+  { name: "Universal USB Socket", price: 1850, img: product2 },
+  { name: "Motion Sensor Module", price: 2150, img: product3 },
+  { name: "13A Multi-Socket Hub", price: 920, img: product4 },
+  { name: "Doorbell Push Switch", price: 580, img: product5 },
+  { name: "Smart Wi-Fi Dimmer", price: 2400, img: product6 },
+  { name: "Floor Pop-up Box", price: 1950, img: product7 },
+  { name: "Satellite & TV Port", price: 850, img: product8 },
+  { name: "Cooker Control Switch", price: 1600, img: product9 },
+  { name: "Modular Blanking Plate", price: 250, img: product10 },
+  { name: "Air Con Isolator Switch", price: 1350, img: product11 },
+  { name: "Dual Ethernet Data Port", price: 790, img: product12 },
 ];
 
 export function ProductGallery() {
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
-  const [viewMode, setViewMode] = useState<"grid3" | "grid2" | "list">("grid3");
+  const [viewMode, setViewMode] = useState<"grid4" | "grid3" | "grid2">(
+    "grid3",
+  );
 
   const handleAddToCart = (product: Product) => {
-    console.log(`Added ${product.name} to cart`);
+    alert(`Added ${product.name} to cart`);
   };
 
   const totalPages = Math.ceil(products.length / itemsPerPage);
@@ -74,7 +89,7 @@ export function ProductGallery() {
                 }}
                 className={`hover:text-white ${
                   itemsPerPage === num ? "text-white font-bold" : ""
-                }`}
+                } cursor-pointer`}
               >
                 {num}
               </button>
@@ -84,7 +99,7 @@ export function ProductGallery() {
           {/* VIEW MODE */}
           <div className="flex items-center gap-2 border-l border-gray-700 pl-6">
             <LayoutGrid
-              size={20}
+              size={24}
               onClick={() => setViewMode("grid2")}
               className={`cursor-pointer hover:text-white ${
                 viewMode === "grid2" ? "text-white" : ""
@@ -92,24 +107,24 @@ export function ProductGallery() {
             />
 
             <Grid3X3
-              size={20}
+              size={24}
               onClick={() => setViewMode("grid3")}
               className={`cursor-pointer hover:text-white ${
                 viewMode === "grid3" ? "text-white" : ""
               }`}
             />
 
-            <List
-              size={20}
-              onClick={() => setViewMode("list")}
+            <TfiLayoutGrid4
+              size={24}
+              onClick={() => setViewMode("grid4")}
               className={`cursor-pointer hover:text-white ${
-                viewMode === "list" ? "text-white" : ""
+                viewMode === "grid4" ? "text-white" : ""
               }`}
             />
           </div>
 
           {/* SORT */}
-          <select className="bg-transparent border-none focus:ring-0 text-white cursor-pointer text-sm">
+          <select className="bg-transparent border-none focus:ring-0 outline-0 text-white cursor-pointer text-sm">
             <option className="bg-background-3">Default sorting</option>
             <option className="bg-background-3">Price: Low to High</option>
             <option className="bg-background-3">Price: High to Low</option>
@@ -119,15 +134,13 @@ export function ProductGallery() {
 
       {/* PRODUCT GRID */}
       <div
-        className={`grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10
-          lg:${
-            viewMode === "grid3"
-              ? "grid-cols-3"
-              : viewMode === "grid2"
-                ? "grid-cols-2"
-                : "grid-cols-1"
-          }
-        `}
+        className={`grid gap-x-6 gap-y-10 ${
+          viewMode === "grid4"
+            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            : viewMode === "grid3"
+              ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
+        }`}
       >
         {visibleProducts.map((product, i) => (
           <ProductCard
@@ -143,7 +156,7 @@ export function ProductGallery() {
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((p) => p - 1)}
-          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40"
+          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
         >
           <BiLeftArrowAlt size={20} />
         </button>
@@ -160,7 +173,7 @@ export function ProductGallery() {
                 currentPage === page
                   ? "bg-[#003d6b] text-white"
                   : "hover:text-white"
-              }`}
+              } cursor-pointer`}
             >
               {page}
             </button>
@@ -170,7 +183,7 @@ export function ProductGallery() {
         <button
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage((p) => p + 1)}
-          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40"
+          className="w-8 h-8 flex items-center justify-center hover:text-white disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
         >
           <BiRightArrowAlt size={20} />
         </button>

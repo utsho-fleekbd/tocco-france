@@ -6,7 +6,7 @@ import slideOne from "./assets/slide-one.webp";
 
 export function SlideTwo({ isActive }: { isActive: boolean }) {
   return (
-    <div className="relative h-[50svh] sm:h-[60svh] md:h-[80svh] lg:h-screen w-full overflow-hidden bg-black">
+    <div className="relative h-[37.5vh] sm:h-[50vh] md:h-[80vh] lg:h-screen w-full overflow-hidden bg-black">
       <motion.div
         initial={false}
         animate={{

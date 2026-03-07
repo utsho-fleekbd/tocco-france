@@ -14,7 +14,7 @@ import { SlideOne } from "./slide-one";
 import { SlideTwo } from "./slide-two";
 import { SlideThree } from "./slide-three";
 
-export default function Slider() {
+export function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (

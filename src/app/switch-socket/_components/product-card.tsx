@@ -22,7 +22,7 @@ export function ProductCard({
           alt={product.name}
           width={400}
           height={400}
-          className="w-full h-full object-cover group-hover:scale-125 transition-all duration-300"
+          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(.35,.64,.46,.98)]"
         />
 
         <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">

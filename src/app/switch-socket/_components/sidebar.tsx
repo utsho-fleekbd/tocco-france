@@ -1,20 +1,29 @@
+"use client";
+
+import { useState } from "react";
 import { LuMenu } from "react-icons/lu";
 
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Slider } from "@/components/ui/slider";
 
 export function Sidebar() {
-  const minPrice = 300;
-  const maxPrice = 1650;
+  const [minPrice, setMinPrice] = useState(300);
+  const [maxPrice, setMaxPrice] = useState(1650);
 
   const barContent = (
     <div className="space-y-6 p-6 lg:p-0">
       <h2 className="uppercase font-bold text-lg">Filter by Price</h2>
       <Slider
-        defaultValue={[0, 100]}
-        max={100}
+        defaultValue={[300, 1650]}
+        min={300}
+        max={1650}
         step={1}
-        className="w-full text-red-800"
+        onValueChange={(e) => {
+          const [min, max] = e.values();
+          setMinPrice(min);
+          setMaxPrice(max);
+        }}
+        className="w-full text-red-800 cursor-e-resize"
       />
 
       <div className="w-full flex items-center justify-between">
@@ -24,7 +33,7 @@ export function Sidebar() {
             {minPrice} — {maxPrice}৳
           </span>
         </p>
-        <button className="p-2 px-3 rounded-xs bg-background cursor-pointer hover:bg-background-2 transition-colors">
+        <button className="p-2 px-3 rounded-xs bg-background cursor-pointer hover:bg-background-3 transition-colors">
           Filter
         </button>
       </div>

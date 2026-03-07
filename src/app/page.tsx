@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-import Slider from "./_components/hero/slider";
-import { Welcome } from "./_components/hero";
+import { Slider } from "./_components/hero/slider";
+import { Welcome } from "./_components/welcome";
 import { Services } from "./_components/services";
 import { Demo } from "./_components/demo";
 import { Showcase } from "./_components/showcase";

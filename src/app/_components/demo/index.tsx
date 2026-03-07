@@ -9,12 +9,12 @@ import { BsArrowRight } from "react-icons/bs";
 
 export function Demo() {
   return (
-    <section className="relative w-full min-h-screen grid grid-cols-1 md:grid-cols-5 bg-black">
+    <section className="relative w-full min-h-screen grid grid-cols-1 lg:grid-cols-5 bg-black">
       <div className="absolute inset-0 bg-linear-to-b from-black via-black/60 to-transparent z-10" />
 
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent z-10" />
 
-      <div className="relative md:col-span-2">
+      <div className="relative lg:col-span-2">
         <Image
           src={switches}
           alt="Switch"
@@ -24,7 +24,7 @@ export function Demo() {
         />
       </div>
 
-      <div className="relative md:col-span-3">
+      <div className="relative lg:col-span-3">
         <Image
           src={setup}
           alt="Interior Setup"
@@ -33,7 +33,7 @@ export function Demo() {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 z-10 flex items-center px-10 md:px-20">
+        <div className="absolute inset-0 z-10 flex items-center px-6 lg:px-20">
           <div className="max-w-2xl space-y-6">
             <motion.h1
               className="

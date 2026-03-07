@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-16 pt-40 pb-6">
+    <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-16 pt-36 pb-6">
       <div className="lg:pr-12 lg:border-r border-gray-400 space-y-4">
         <div className="w-full flex items-center gap-6">
           <h2 className="text-2xl font-semibold">SEND US AN EMAIL</h2>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function CareerForm() {
   return (
-    <div className="mt-28 md:mt-32 mb-16" style={{ perspective: 1500 }}>
+    <div className="mt-24 md:mt-32 mb-16" style={{ perspective: 1500 }}>
       <motion.div
         initial={{
           rotateY: -90,

@@ -34,8 +34,8 @@ export function Navbar() {
         className={clsx(
           "fixed top-0 left-0 w-full z-50 flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
-            ? `py-1 px-4 ${pathname !== "/" ? "bg-background" : "bg-navbar"} bg-opacity-80 backdrop-filter backdrop-blur-md shadow-md`
-            : "py-8 px-8 bg-transparent",
+            ? `py-px px-4 ${pathname !== "/" ? "bg-background" : "bg-navbar"} bg-opacity-80 backdrop-filter backdrop-blur-md shadow-md`
+            : `px-8 ${pathname !== "/" ? "py-1 lg:py-3" : "py-2 lg:py-6"} bg-transparent`,
         )}
       >
         <div className="w-full flex items-center justify-between">
