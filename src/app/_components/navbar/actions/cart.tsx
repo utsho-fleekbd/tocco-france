@@ -11,17 +11,20 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-export function Cart() {
+export function Cart({ showLabel = false }: { showLabel?: boolean }) {
   const itemCount = 0;
 
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>
-        <button className="relative cursor-pointer">
-          <FiShoppingCart className="text-2xl hover:text-gray-500 transition-colors duration-300" />
-          <span className="absolute -top-1 -right-1 bg-tertiary text-white text-xs px-1 py-px rounded-full">
-            {itemCount}
-          </span>
+        <button className="flex flex-col items-center gap-1 cursor-pointer">
+          <div className="relative">
+            <FiShoppingCart className="text-2xl hover:text-gray-500 transition-colors duration-300" />
+            <span className="absolute -top-1 -right-1 bg-tertiary text-white text-xs px-1 py-px rounded-full">
+              {itemCount}
+            </span>
+          </div>
+          {showLabel && <p className="text-sm font-semibold">Cart</p>}
         </button>
       </DrawerTrigger>
       <DrawerContent>

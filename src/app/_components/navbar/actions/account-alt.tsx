@@ -10,13 +10,13 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-export function Account({ showLabel = false }: { showLabel?: boolean }) {
+export function AccountAlt() {
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>
-        <button className="flex flex-col items-center gap-1 cursor-pointer">
-          <LuUser className="text-2xl hover:text-gray-500 transition-colors duration-300" />
-          {showLabel && <p className="text-sm font-semibold">Account</p>}
+        <button className="relative flex items-start gap-2 cursor-pointer px-6">
+          <LuUser className="text-xl hover:text-gray-500 transition-colors duration-300" />
+          <p className="text-base uppercase font-semibold">Register / Login</p>
         </button>
       </DrawerTrigger>
       <DrawerContent>

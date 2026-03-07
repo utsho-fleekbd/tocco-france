@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Account } from "./actions/account";
-import { Cart } from "./actions/cart";
-import { Search } from "./actions/search";
+
+import { Account } from "./account";
+import { Cart } from "./cart";
+import { Shop } from "./shop";
 
 export function MobileActions() {
   return (
@@ -14,9 +15,9 @@ export function MobileActions() {
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
     >
       <div className="mx-auto flex items-center justify-around bg-navbar bg-opacity-95 backdrop-blur-md py-2 border-t border-gray-700">
-        <Account />
-        <Search />
-        <Cart />
+        <Shop showLabel />
+        <Cart showLabel />
+        <Account showLabel />
       </div>
     </motion.nav>
   );

@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { LuSearch } from "react-icons/lu";
 
 import { NAVBAR_SCROLL_HEIGHT } from "@/utils/consts";
 import { Logo } from "@/components/ui/logo";
@@ -12,8 +13,9 @@ import { ActionList } from "./actions/action-list";
 import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import { LuMenu } from "react-icons/lu";
 import { NavLink } from "./nav-link";
-import { MobileActions } from "./mobile-actions";
+import { MobileActions } from "./actions/mobile-actions";
 import { Cart } from "./actions/cart";
+import { AccountAlt } from "./actions/account-alt";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -64,14 +66,35 @@ export function Navbar() {
                   initial={{ x: -40, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 260, damping: 30 }}
-                  className="px-4 py-8"
                 >
-                  <ul className="flex flex-col gap-6">
+                  <div className="relative mx-4 py-4">
+                    <input
+                      type="text"
+                      className="text-white p-4 text-xl outline-0"
+                      placeholder="Search for Product"
+                      autoFocus
+                    />
+                    <LuSearch
+                      size={24}
+                      className="absolute top-1/2 right-0 -translate-y-1/2"
+                    />
+                  </div>
+
+                  <ul className="flex flex-col gap-4">
                     {navLinks.map((link, i) => (
-                      <li key={i}>
-                        <NavLink href={link.href}>{link.children}</NavLink>
+                      <li
+                        key={i}
+                        className="pb-4 border-b border-gray-700 w-full"
+                      >
+                        <NavLink href={link.href} className="px-6">
+                          {link.children}
+                        </NavLink>
                       </li>
                     ))}
+
+                    <li className="pb-4 border-b border-gray-700 w-full">
+                      <AccountAlt />
+                    </li>
                   </ul>
                 </motion.div>
               </DrawerContent>
